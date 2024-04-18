@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        button {
+           
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    
+   
+</head>
+<body>
+    <h1>Happy Colors</h1>
+
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    
+</body>
+
+<script>
+//     const sayHello =function (){
+//     console.log("hello")
+// }
+
+
+
+// const sayHi = function(){
+//     document.querySelector('h1').innerHTML="hi"
+// }
+//  const clear =setTimeout(sayHi,2000)
+//  document.querySelector('#stop').addEventListener('click',function(){
+//     clearTimeout(clear)
+
+//  })
+
+// const setStr= function(){console.log("hello")
+
+// }
+
+
+// let inervalId;
+
+
+
+// document.querySelector('#start').addEventListener('click',function(){
+//    inervalId= setInterval(setStr,1000)
+// })
+// document.querySelector('#stop').addEventListener('click',function(){
+//     clearInterval(inervalId)
+
+// })
+
+
+
+
+const randomColor=function(){
+    const hex ="0123456789ABCDEF"
+    let color = '#'
+ for(let i=0;i<6;i++){
+  color +=hex[(Math.floor(Math.random()*16))]
+ }
+ return color;
+}
+
+
+
+let intervalId;
+
+const startChange=function(){
+
+  intervalId=  setInterval(changeBg,1000)
+    function changeBg(){
+ document.body.style.backgroundColor = randomColor()
+
+    }
+
+   
+
+}
+    
+
+const stopChange=function(){
+
+    clearInterval(intervalId) ;
+
+};
+
+document.querySelector('#start').addEventListener('click',startChange)
+
+document.querySelector('#stop').addEventListener('click',stopChange)
+
+
+</script>
+</html>
