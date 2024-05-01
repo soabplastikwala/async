@@ -117,6 +117,8 @@ const stopChange=function(){
 
     clearInterval(intervalId) ;
 
+    intervalId=null;
+
 };
 
 document.querySelector('#start').addEventListener('click',startChange)
