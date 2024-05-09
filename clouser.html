@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lexical scoping</title>
+    <style>
+        body {
+            background-color: #313131;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        button {
+            margin: 0 5px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="red" style="background-color: red; color: white;">Red</button>
+    <button id="orange" style="background-color: orange; color: white;">Orange</button>
+    <button id="yellow" style="background-color: yellow; color: black;">Yellow</button>
+    <button id="blue" style="background-color: blue; color: white;">Blue</button>
+    <button id="green" style="background-color: green; color: white;">Green</button>
+    
+</body>
+<script>
+  
+    function outer(color){
+         return function inner(){
+
+            document.body.style.backgroundColor = `${color}`
+
+        }
+    }
+
+document.querySelector('#red').onclick = outer("red");
+document.querySelector('#orange').onclick = outer("orange");
+document.querySelector('#yellow').onclick = outer("yellow");
+document.querySelector('#blue').onclick = outer("blue");
+document.querySelector('#green').onclick = outer("green");
+
+</script>
+</html>
